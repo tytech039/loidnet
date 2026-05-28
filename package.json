@@ -1,0 +1,16 @@
+{
+  "name": "loidnet",
+  "version": "0.1.0",
+  "description": "Open-source Vocaloid-style piano roll editor for DiffSinger neural singing synthesis",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "playwright-core": "^1.60.0"
+  }
+}

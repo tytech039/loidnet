@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+voicebanks/
+*.wav
+__pycache__/
+*.pyc
+.venv/
+*.loid
+CLAUDE.md

@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #1a1a2e;
+  color: #e0e0e0;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+#toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px;
+  background: #16213e;
+  border-bottom: 1px solid #0f3460;
+  flex-shrink: 0;
+  height: 40px;
+}
+
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.toolbar-group.status {
+  margin-left: auto;
+}
+
+#toolbar button {
+  background: #0f3460;
+  color: #e0e0e0;
+  border: 1px solid #1a508b;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#toolbar button:hover {
+  background: #1a508b;
+}
+
+#toolbar button:active {
+  background: #533483;
+}
+
+#toolbar label {
+  font-size: 12px;
+  color: #a0a0c0;
+}
+
+#toolbar select,
+#toolbar input[type="number"] {
+  background: #0f3460;
+  color: #e0e0e0;
+  border: 1px solid #1a508b;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 12px;
+}
+
+#toolbar input[type="number"] {
+  width: 56px;
+}
+
+#status-text {
+  font-size: 11px;
+  color: #a0a0c0;
+}
+
+#editor-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#piano-roll-wrapper {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+}
+
+#piano-keys {
+  flex-shrink: 0;
+  background: #16213e;
+  border-right: 1px solid #0f3460;
+}
+
+#piano-roll {
+  flex: 1;
+  background: #1a1a2e;
+  cursor: crosshair;
+}
+
+#param-tabs {
+  display: flex;
+  gap: 2px;
+  padding: 2px 8px;
+  background: #16213e;
+  border-top: 1px solid #0f3460;
+  flex-shrink: 0;
+}
+
+.param-tab {
+  background: transparent;
+  color: #a0a0c0;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 3px 10px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.param-tab.active {
+  color: #e94560;
+  border-bottom-color: #e94560;
+}
+
+.param-tab:hover {
+  color: #e0e0e0;
+}
+
+#param-editor-wrapper {
+  height: 150px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #0f3460;
+}
+
+#param-editor {
+  width: 100%;
+  height: 100%;
+  background: #1a1a2e;
+  cursor: crosshair;
+}
+
+#lyric-input {
+  position: absolute;
+  z-index: 100;
+  background: #16213e;
+  color: #e94560;
+  border: 1px solid #e94560;
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-size: 11px;
+  font-family: inherit;
+  outline: none;
+  min-width: 40px;
+}
