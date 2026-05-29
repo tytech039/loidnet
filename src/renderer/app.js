@@ -127,6 +127,17 @@ async function playAudio(arrayBuffer) {
   playbackInterval = setInterval(() => {
     const elapsed = ctx.currentTime - playbackStartTime;
     pianoRoll.playbackTick = Math.floor(elapsed * ticksPerSecond);
+
+    // Auto-scroll to keep the playback indicator in view.
+    const px = pianoRoll.tickToScreen(pianoRoll.playbackTick);
+    const width = pianoRoll.canvas.width;
+    if (px > width * 0.7 || px < 0) {
+      pianoRoll.scrollX = Math.max(
+        0,
+        pianoRoll.playbackTick * pianoRoll.pixelsPerTick - width * 0.7
+      );
+    }
+
     pianoRoll.render();
     paramEditor.render();
   }, 1000 / 30);
@@ -212,6 +223,10 @@ document.getElementById('btn-open').addEventListener('click', async () => {
 });
 
 pianoRoll.onNotesChanged = () => {
+  paramEditor.render();
+};
+
+pianoRoll.onViewChanged = () => {
   paramEditor.render();
 };
 

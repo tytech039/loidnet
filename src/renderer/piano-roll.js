@@ -33,6 +33,7 @@ class PianoRoll {
 
     this.playbackTick = -1;
     this.onNotesChanged = null;
+    this.onViewChanged = null;
 
     this.resizeObserver = new ResizeObserver(() => this.handleResize());
     this.resizeObserver.observe(canvas.parentElement);
@@ -329,11 +330,13 @@ class PianoRoll {
     } else if (e.shiftKey) {
       this.scrollX += e.deltaY;
     } else {
+      this.scrollX += e.deltaX;
       this.scrollY += e.deltaY;
     }
     this.scrollX = Math.max(0, this.scrollX);
     this.scrollY = Math.max(0, Math.min(this.totalPitches * this.noteHeight - this.canvas.height, this.scrollY));
     this.render();
+    if (this.onViewChanged) this.onViewChanged();
   }
 
   onKeyDown(e) {
